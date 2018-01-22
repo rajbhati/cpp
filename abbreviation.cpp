@@ -19,7 +19,6 @@ void pprint(I b, I e){
 }
 
 string abbreviation(string a, string b) {
-    // Complete this function
     size_t n1, n2;
     n1 = a.length(); n2 = b.length();
     if(!n2){
@@ -72,6 +71,17 @@ string abbreviationDP(string a, string b) {
     
     return abbDP[n1][n2] ? "YES" : "NO";
 }
+
+/* 
+ * You can perform the following operation on some string, a :
+ *
+ * Capitalize zero or more of a's lowercase letters at some index i (i.e., make them uppercase).
+ * Delete all of the remaining lowercase letters in a.
+ * Given q queries in the form of two strings, a and b, determine if it's possible to make a equal to b by performing the above operation on a. 
+ * If a can be transformed into b, print YES on a new line; otherwise, print NO.
+ *
+ * https://www.hackerrank.com/challenges/abbr/problem
+ */
 
 int main() {
     int q;
