@@ -18,6 +18,7 @@ void pprint(I b, I e){
     cout << endl;
 }
 
+/* recursive solution. */
 string abbreviation(string a, string b) {
     size_t n1, n2;
     n1 = a.length(); n2 = b.length();
