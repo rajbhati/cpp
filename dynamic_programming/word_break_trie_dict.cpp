@@ -62,10 +62,11 @@ struct trie {
 using pbi = pair < bool, size_t >;
 void pretty_print(string sentence, trie & dictionary){
 	size_t sentenceLen = sentence.length();
-	pbi dp[sentenceLen][sentenceLen];
+	pbi dp[sentenceLen][sentenceLen]; // an array of <bool, int> storing whether sentence[i][j] can be pretty printed. 
+									  // If yes, the 'second' stores the index after which a ' ' needs to be printed while pretty-printing 
 	dp[0][0] = make_pair(false, -1);
 
-	for (int wordlen = 1; wordlen <= sentenceLen; ++wordlen) 
+	for (int wordlen = 1; wordlen <= sentenceLen; ++wordlen){
 		for (int start = 0; start <= (sentenceLen - wordlen); ++start) {
 			int end = start + wordlen - 1;
 			string tryword = sentence.substr(start, end - start + 1);
@@ -83,6 +84,7 @@ void pretty_print(string sentence, trie & dictionary){
 				dp[start][end] = found;
 			}
 		}
+	}
 
 	int i = 0;
 	int j = sentenceLen - 1;
