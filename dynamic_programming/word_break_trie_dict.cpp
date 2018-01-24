@@ -1,6 +1,8 @@
-/* Given an string and a dictionary of words, find out if the input string can be 
+/* 
+ * Given a string and a dictionary of words, find out if the input string can be 
  * broken into a space-separated sequence of one or more dictionary words. If yes,
- * output the space-separated words, else output "NO".
+ * output the space-separated words, else output "NO". 
+ * Store the dictionary in a trie.
  *
  * Input Format:
  * 1. First line has an integer 'N' denoting number of words in the dictionary.
