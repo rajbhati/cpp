@@ -1,6 +1,16 @@
+/* Given an string and a dictionary of words, find out if the input string can be 
+ * broken into a space-separated sequence of one or more dictionary words. If yes,
+ * output the space-separated words, else output "NO".
+ *
+ * Input Format:
+ * 1. First line has an integer 'N' denoting number of words in the dictionary.
+ * 2. Following 'N' lines have one word each making the dictionary.
+ * 3. Next line has an integer 'T' denoting number of sentences to pretty-print.
+ * 4. Following 'T' lines have one sentence each.
+ */
+
 #include <iostream>
 #include <algorithm>
-#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -88,16 +98,6 @@ void pretty_print(string sentence, trie & dictionary){
 		cout << "NO" << endl;
 }
 
-/* Given an string and a dictionary of words, find out if the input string can be 
- * broken into a space-separated sequence of one or more dictionary words. If yes,
- * output the space-separated words, else output "NO".
- *
- * Input Format:
- * 1. First line has an integer 'N' denoting number of words in the dictionary.
- * 2. Following 'N' lines have one word each making the dictionary.
- * 3. Next line has an integer 'T' denoting number of sentences to pretty-print.
- * 4. Following 'T' lines have one sentence each.
- */
 int main(int argc, char **argv)
 {
 	int n, T;
