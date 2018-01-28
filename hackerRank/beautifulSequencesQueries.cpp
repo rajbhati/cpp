@@ -57,9 +57,9 @@ struct bSequences{
         } else if (endswith!=ends.end()){   // sequence [x, val] now becomes [x, val-1]
             ends.erase(endswith);           // val is not an ending element anymore    
             ends.insert(val-1);             // val-1 is a new ending element
-        } else {
-            starts.insert(val+1);   // add a new sequence [val]
-            ends.insert(val-1);
+        } else { // there must be a sequence [x, ... ,val, ..., y], deleting val breaks this sequence
+            starts.insert(val+1);   // [val+1, ..., y] is a new sequence
+            ends.insert(val-1);		// [x, ..., val-1] is a new sequence
             ++count;
         }
     }
