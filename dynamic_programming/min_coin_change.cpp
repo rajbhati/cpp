@@ -5,10 +5,8 @@
 using namespace std;
 
 long minCoins(long n, vector < long > c){
-    long coins[n+1];
+	vector<long> coins(n+1, LONG_MAX);
 
-    fill(&coins[0], &coins[n+1], LONG_MAX);
-    
     coins[0] = 0;
     for(auto it = c.begin(); it != c.end(); ++it) {
         for(long i= *it; i <= n; ++i) {

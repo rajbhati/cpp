@@ -1,10 +1,11 @@
 /* 
  * The SuperBowl Lottery is about to commence, and there are several lottery tickets being sold, 
- * and each ticket is identified with a ticket ID. In one of the many winning scenarios in the Superbowl lottery, a winning pair of tickets is:
+ * and each ticket is identified with a ticket ID. In one of the many winning scenarios in the Superbowl lottery, 
+ * a pair of tickets is winner if:
  *
- * 1. Concatenation of the two ticket IDs in the pair, in any order, contains each digit from  to  at least once.
+ * 1. Concatenation of the two ticket IDs in the pair, in any order, contains each digit from 0 to 9 at least once.
  *
- * For example, if there are 2 distinct tickets with ticket ID 12930045 and 56789, (12930045, 56789) is a winning pair.
+ * For example, if there are 2 distinct tickets with ticket ID 12930045 and 5678, (12930045, 5678) is a winning pair.
  *
  * NOTE: The ticket IDs can be concantenated in any order. Digits in the ticket ID can occur in any order.
  *
@@ -12,10 +13,15 @@
  * makes for a winning scenario. Complete the function winningLotteryTicket which takes a string array of ticket IDs as input, 
  * and returns the number of winning pairs.
  *
- * Input Format
+ * Input Format:
  *
- * The first line contains n denoting the total number of lottery tickets in the super bowl. 
- * Each of the next n lines contains a string, denoting a ticket ID.
+ * The first line contains N, denoting the total number of lottery tickets in the super bowl. 
+ * Each of the next N lines contains a string, denoting a ticket ID.
+ *
+ * Output:
+ * Total number of winning pairs
+ *
+ * IMPORTANT: O(N^2) solution won't be accepted.
  *
  */
 

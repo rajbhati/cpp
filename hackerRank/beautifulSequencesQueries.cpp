@@ -3,7 +3,7 @@
  *
  * The array A has length n. A function f(A) is defined to be a minimal possible x, such that it's possible to divide array A into 
  * x beautiful subsequences. 
- * Note that each element of an array should belong to exactly one subsequence, and subsequence does not necessarily need to be consecutive.
+ * Note that each element of an array should belong to exactly one subsequence, and a subsequence does not necessarily need to be consecutive.
  *
  * A subsequence S with length len is called beautiful if and only if:
  * 1. len = 1 or
@@ -12,17 +12,21 @@
  *  or like [1,2,3,4,5] and [3].
  *
  *  You have to answer q queries. Each query is of the type:
- *  id val : you need to change the value of A[id] to val. . Here id is 1-indexed.
+ *  id val : you need to change the value of A[id] to val before computing f(A). Here id is 1-indexed.
  *  
- *  After each query, for the value of f(A), lets denote that value as ans-i, where i indicates the i-th query.
+ *  After each query, for the value of f(A), let's denote that value as ans[i], where i indicates the i-th query.
  *
- *   You need to find sum(i* ans-i) modulo 1000000007, i ranges from 1 to q.
+ *  You need to find sum(i* ans[i]) modulo 1000000007, i ranges from 1 to q.
  *
- *   Input Format
+ *   Input Format:
  *   The first line contains a single integer n, representing the length of array A. 
  *   The next line contains the array A given as space-separated integers. 
  *   The next line contains a single integer q, representing the number of queries. 
  *   Each of the next q lines contain two integers id and val, which is described above.
+ *
+ *   Output:
+ *   Value of the above mentioned summation.
+ *
  */
 #include <iostream>
 #include <algorithm>
@@ -120,8 +124,8 @@ int main() {
     int q;
     cin >> q;
     vector< vector<int> > queries(q,vector<int>(2));
-    for(int i = 0;i < q;i++){
-       for(int j = 0;j < 2;j++){
+    for(int i=0; i<q; i++){
+       for(int j=0; j<2; j++){
           cin >> queries[i][j];
        }
     }
