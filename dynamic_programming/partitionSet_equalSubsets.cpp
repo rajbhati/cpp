@@ -1,5 +1,5 @@
 /* 
- * Give a set S of positive integers, partition S into two subsets S1 and S2 such that:
+ * Given a set S of positive integers, partition S into two subsets S1 and S2 such that:
  * 1. S1 and S2 disjoint. (they don't share any element)
  * 2. Sum of all elements in S1 = Sum of all elements in S2
  * 3. The above Sum is the maximum such sum possible.
@@ -13,8 +13,64 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
+
+/*
+ * subsetsum(arr, n, sum) =
+ * 	subsetsum(arr, n-1, sum) ||
+ * 	subsetsum(arr, n-1, sum-arr[n-1])
+ *
+ * 	Base case:
+ * 	subsetsum(arr, n, sum) = false, if sum>0 and n=0
+ * 	subsetsum(arr, n, sum) = true, if sum=0
+ */
+set<int> subsetsumDP(vector<int> &arr, int sum) {
+    /* ss[i][j] = true, if subsetsumDP(arr, i, j) is true
+     * i.e. there is a subset of arr[0] .. arr[i-1] with sum j 
+     */
+    size_t n = arr.size();
+    vector<vector<bool>> ssDP(n+1, vector<bool>(sum+1, false)); 
+
+    // if sum=0, there's always a subset
+    for_each(ssDP.begin(), ssDP.end(), [](vector<bool> &row){row[0]=true;});
+    
+    // if sum!=0, and set is empty, then there's no subset possible
+    for_each(next(ssDP[0].begin()), ssDP[0].end(), [](_Bit_reference x){x=false;});
+
+    for (int row = 1; row <= n; ++row){
+        for (int col = 1; col <= sum; ++col) {
+            if (col < arr[row - 1]) { // sum is less than current number being considered
+                ssDP[row][col] = ssDP[row-1][col];  // current number can't be used to make sum
+            } else {
+                ssDP[row][col] = ssDP[row-1][col - arr[row-1]] || // include current element in the sum 'col'
+                        ssDP[row-1][col]; // find sum 'col' without including this element
+            }
+        }
+    }
+
+    set<int> sumSet;
+    
+    if (ssDP[n][sum]) { // subset found
+
+        int remaining = sum;
+        int row = n;
+        while(remaining){
+            for (; row > 0; --row) {
+                if (ssDP[row][remaining] && !ssDP[row-1][remaining]) { // can't make sum without current element
+                    sumSet.insert(arr[row-1]);
+                    remaining = remaining - arr[row-1];
+                    if (!remaining)
+                        return sumSet;
+                    break;
+                }
+            }
+        }
+    }
+
+    return sumSet;
+}
 
 /* 
  * DP(S(n), X, Y) = Solution to setPartition n element set S(n), partitioned into two sets with sum X and Y.
@@ -25,8 +81,9 @@ using namespace std;
  * 						
  */
 bool partitionSet(vector<int> &arr, int sum) {
+
     size_t n = arr.size();
-    
+
     bool ss[n+1][sum+1][sum+1];
     for(int i=0; i<=n; ++i)
         for(int j=0; j<=sum; ++j){
@@ -35,7 +92,7 @@ bool partitionSet(vector<int> &arr, int sum) {
             }
         }
 
-    for(int i=0; i<=n; ++i)
+	for(int i=0; i<=n; ++i) // subsets of size '0' are always possible
         ss[i][0][0] = true;
 
     for (int items = 1; items <= n; ++items){
@@ -59,8 +116,33 @@ bool partitionSet(vector<int> &arr, int sum) {
     }
 
     for(int i=sum; i>0; --i){
-        if(ss[n][i][i]) {
-            cout << "Maximum sum=" << i << endl;
+        if(ss[n][i][i]) { // maximum sum subset
+            cout << endl << "Maximum sum=" << i << endl;
+    		set<int> setX; // first set, X
+            int remaining = i;
+            int row = n;
+            while(remaining){
+                int xx = remaining;
+                for(; row>0; --row){
+                    if(ss[row][xx][0] && !ss[row-1][xx][0]){
+                        setX.insert(arr[row-1]);
+                        remaining -= arr[row-1];
+                        --row;
+                        break;
+                    }
+                }
+            }
+            
+            cout << "First set: ";
+            for_each(setX.begin(), setX.end(), [](int x){cout << x << ",";});
+            cout << endl;
+            vector<int> yarr; // use subsetSumDP to find a subset of 'i' sum in remaining elements of arr
+            set_difference(arr.begin(), arr.end(), setX.begin(), setX.end(), inserter(yarr, yarr.begin()));
+            set<int> setY = subsetsumDP(yarr, i);
+            cout << "Second set: ";
+            for_each(setY.begin(), setY.end(), [](int x){cout << x << ",";});
+            cout << endl;
+
             return true;
         }
     }

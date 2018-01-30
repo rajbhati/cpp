@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 /*
@@ -40,7 +41,7 @@ void prettyPrint(vector<vector<bool>> &vv, vector<int> &arr){
     cout << endl;
 }
 
-bool subsetsumDP(vector<int> &arr, int sum) {
+set<int> subsetsumDP(vector<int> &arr, int sum) {
     /* ss[i][j] = true, if subsetsumDP(arr, i, j) is true
      * i.e. there is a subset of arr[0] .. arr[i-1] with sum j 
      */
@@ -64,31 +65,26 @@ bool subsetsumDP(vector<int> &arr, int sum) {
         }
     }
 
-    prettyPrint(ssDP, arr);
-
+    set<int> sumSet;
+    
     if (ssDP[n][sum]) { // if subset found then print elements
-        cout << "Subset with sum " << sum << ": ";
-        bool done = false;
+
         int remaining = sum;
-        for (int col = remaining; col>0;) {
-            for (int row = n; row > 0; --row) {
-                if (ssDP[row][col] && !ssDP[row-1][col]) { // can't make sum without current element
+        int row = n;
+        while(remaining){
+            for (; row > 0; --row) {
+                if (ssDP[row][remaining] && !ssDP[row-1][remaining]) { // can't make sum without current element
+                    sumSet.insert(arr[row-1]);
                     remaining = remaining - arr[row-1];
-                    cout << arr[row-1] << ", ";
-                    if (!remaining) {
-                        done = 1;
-                    } else col = remaining;
+                    if (!remaining)
+                        return sumSet;
                     break;
                 }
             }
-            if (done) break;
         }
-        cout << endl;
-    } else {
-        cout << "No subset with sum " << sum << endl;
     }
 
-    return true;
+    return sumSet;
 }
 
 int main() {
@@ -103,5 +99,10 @@ int main() {
 
     cout << "Input required Sum: ";
     cin >> sum;
-    subsetsumDP(arr, sum);
+	set<int> subSet = subsetsumDP(arr, sum);
+	if(subSet.size()){
+		cout << "Subset with sum " << sum << " : " ;
+		for_each(subSet.begin(), subSet.end(), [](int x){ cout << x << ",";});
+		cout << endl;
+	} else cout << "No subset found" << endl;
 }
