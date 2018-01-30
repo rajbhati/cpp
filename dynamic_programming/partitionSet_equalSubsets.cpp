@@ -26,7 +26,7 @@ using namespace std;
  * 	subsetsum(arr, n, sum) = false, if sum>0 and n=0
  * 	subsetsum(arr, n, sum) = true, if sum=0
  */
-set<int> subsetsumDP(vector<int> &arr, int sum) {
+multiset<int> subsetsumDP(vector<int> &arr, int sum) {
     /* ss[i][j] = true, if subsetsumDP(arr, i, j) is true
      * i.e. there is a subset of arr[0] .. arr[i-1] with sum j 
      */
@@ -50,7 +50,7 @@ set<int> subsetsumDP(vector<int> &arr, int sum) {
         }
     }
 
-    set<int> sumSet;
+    multiset<int> sumSet;
     
     if (ssDP[n][sum]) { // subset found
 
@@ -118,7 +118,7 @@ bool partitionSet(vector<int> &arr, int sum) {
     for(int i=sum; i>0; --i){
         if(ss[n][i][i]) { // maximum sum subset
             cout << endl << "Maximum sum=" << i << endl;
-    		set<int> setX; // first set, X
+    		multiset<int> setX; // first set, X
             int remaining = i;
             int row = n;
             while(remaining){
@@ -138,7 +138,7 @@ bool partitionSet(vector<int> &arr, int sum) {
             cout << endl;
             vector<int> yarr; // use subsetSumDP to find a subset of 'i' sum in remaining elements of arr
             set_difference(arr.begin(), arr.end(), setX.begin(), setX.end(), inserter(yarr, yarr.begin()));
-            set<int> setY = subsetsumDP(yarr, i);
+            multiset<int> setY = subsetsumDP(yarr, i);
             cout << "Second set: ";
             for_each(setY.begin(), setY.end(), [](int x){cout << x << ",";});
             cout << endl;
