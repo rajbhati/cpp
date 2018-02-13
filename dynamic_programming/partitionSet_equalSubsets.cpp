@@ -117,7 +117,7 @@ bool partitionSet(vector<int> &arr, int sum) {
 
     for(int i=sum; i>0; --i){
         if(ss[n][i][i]) { // maximum sum subset
-            cout << endl << "Maximum sum=" << i << endl;
+            cout << endl << "Maximum sum: " << i << endl;
     		multiset<int> setX; // first set, X
             int remaining = i;
             int row = n;
@@ -136,8 +136,12 @@ bool partitionSet(vector<int> &arr, int sum) {
             cout << "First set: ";
             for_each(setX.begin(), setX.end(), [](int x){cout << x << ",";});
             cout << endl;
-            vector<int> yarr; // use subsetSumDP to find a subset of 'i' sum in remaining elements of arr
+
+			// use subsetSumDP to find a subset of 'i' sum in remaining elements of arr
+            vector<int> yarr; 
+			sort(arr.begin(), arr.end()); // need to sort for set_difference
             set_difference(arr.begin(), arr.end(), setX.begin(), setX.end(), inserter(yarr, yarr.begin()));
+
             multiset<int> setY = subsetsumDP(yarr, i);
             cout << "Second set: ";
             for_each(setY.begin(), setY.end(), [](int x){cout << x << ",";});
@@ -163,3 +167,21 @@ int main() {
     sum = accumulate(arr.begin(), arr.end(), 0) / 2;
     partitionSet(arr, sum);
 }
+
+void prettyPrint(vector<vector<bool>> &vv, vector<int> &arr){
+	cout << endl << __PRETTY_FUNCTION__ << endl;
+	cout << "  0 ";
+	for (int j = 1; j < vv[0].size(); j++)
+		cout <<  j << " ";
+	cout << endl;
+
+	for (int i = 0; i < vv.size(); ++i) {
+		if (i > 0) cout << arr[i - 1] << " "; 
+		else cout << "_ "; 
+		for (int j = 0; j < vv[0].size(); ++j)
+			cout << vv[i][j] << " ";
+		cout << endl ;
+	}
+	cout << endl;
+}
+
