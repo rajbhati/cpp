@@ -127,7 +127,6 @@ bool partitionSet(vector<int> &arr, int sum) {
                     if(ss[row][xx][0] && !ss[row-1][xx][0]){
                         setX.insert(arr[row-1]);
                         remaining -= arr[row-1];
-                        --row;
                         break;
                     }
                 }
