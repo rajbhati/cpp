@@ -31,15 +31,15 @@ bool partitionSet(vector<int> &arr, int sum) {
     size_t n = arr.size();
 
     bool ss[n+1][sum+1][sum+1];
-    for(int i=0; i<=n; ++i)
+    for(int i=0; i<=n; ++i){
         for(int j=0; j<=sum; ++j){
             for(int k=0; k<=sum; ++k){
                 ss[i][j][k] = false; 
             }
         }
+	}
 
-        for(int i=0; i<=n; ++i) // subsets of size '0' are always possible
-        ss[i][0][0] = true;
+	for(int i=0; i<=n; ++i) ss[i][0][0] = true; // subsets of size '0' are always possible
 
     for (int items = 1; items <= n; ++items){
         for (int x = 0; x<=sum; ++x) {
@@ -66,12 +66,13 @@ bool partitionSet(vector<int> &arr, int sum) {
             cout << endl << "Maximum sum: " << i << endl;
             multiset<int> setx;
             multiset<int> sety;
-            int rx, ry;
+            int rx, ry; // remaining values of sum X, sum Y which backtracking for set X and Y
             rx = ry = i;
-            for(; n>0 && (rx || ry); --n ){
-//                cout << endl << "rx: " << rx << ", ry: " << ry << ", considering: " << arr[n-1] << endl;
+            for(; n>0 && (rx || ry); --n ){ // consider items one by one
                 if(ss[n][rx][ry] && !ss[n-1][rx][ry]){ // arr[n-1] is essential for either x or y
-                    if(rx && (arr[n-1] <= rx) && !ss[n-1][rx][ ry-arr[n-1] ]){ // put in X
+                    if(rx && (arr[n-1] <= rx) && !ss[n-1][rx][ ry-arr[n-1] ]){ 
+					// without the nth element, sumSets {rx} and {ry - arr[n-1]} would be impossible. 
+					// i.e. it's not possible to put arr[n-1] in set Y, hence it goes in X
                         rx -= arr[n-1];
                         setx.insert(arr[n-1]);
                     } else {
@@ -89,6 +90,8 @@ bool partitionSet(vector<int> &arr, int sum) {
             return true;
         }
     }
+	
+	cout << "No equal sum sets possible!" << endl;
 
     return false;
 }
