@@ -37,25 +37,25 @@ bool partitionSet(vector<int> &arr, int sum) {
                 ss[i][j][k] = false; 
             }
         }
-	}
+    }
 
-	for(int i=0; i<=n; ++i) ss[i][0][0] = true; // subsets of size '0' are always possible
+    for(int i=0; i<=n; ++i) ss[i][0][0] = true; // subsets of size '0' are always possible
 
-    for (int items = 1; items <= n; ++items){
+    for (int item = 1; item <= n; ++item){
         for (int x = 0; x<=sum; ++x) {
             for(int y=0; y<=sum; ++y){
-                if (x < arr[items-1] && y < arr[items-1]) { // x and y are less than the number being considered
-                    ss[items][x][y] = ss[items-1][x][y];    // current number can't be used in x or y
-                } else if (x < arr[items-1]) { // current item can be used to make y
-                    ss[items][x][y] = ss[items-1][x][y] ||              // don't use item  
-                                      ss[items-1][x][y-arr[items-1]];   // use item for y
-                } else if (y < arr[items - 1]) { // current item can be used to make x
-                    ss[items][x][y] = ss[items-1][x][y] ||              // don't use item  
-                                      ss[items-1][x-arr[items-1]][y];   // use item for x
+                if (x < arr[item-1] && y < arr[item-1]) { // x and y are less than the item being considered
+                    ss[item][x][y] = ss[item-1][x][y];    // current item can't be used in x or y
+                } else if (x < arr[item-1]) { // current item can be used to make y
+                    ss[item][x][y] = ss[item-1][x][y] ||              // don't use item  
+                                      ss[item-1][x][y-arr[item-1]];   // use item for y
+                } else if (y < arr[item - 1]) { // current item can be used to make x
+                    ss[item][x][y] = ss[item-1][x][y] ||              // don't use item  
+                                      ss[item-1][x-arr[item-1]][y];   // use item for x
                 } else { // current item can be used to make either x or y
-                    ss[items][x][y] = ss[items-1][x][y] ||              // don't use item
-                                      ss[items-1][x-arr[items-1]][y] || // use item for x
-                                      ss[items-1][x][y-arr[items-1]];   // use item for y
+                    ss[item][x][y] = ss[item-1][x][y] ||              // don't use item
+                                      ss[item-1][x-arr[item-1]][y] || // use item for x
+                                      ss[item-1][x][y-arr[item-1]];   // use item for y
                 }
             }
         }
@@ -66,13 +66,13 @@ bool partitionSet(vector<int> &arr, int sum) {
             cout << endl << "Maximum sum: " << i << endl;
             multiset<int> setx;
             multiset<int> sety;
-            int rx, ry; // remaining values of sum X, sum Y which backtracking for set X and Y
+            int rx, ry; // remaining values of sum X, sum Y, while backtracking for set X and Y
             rx = ry = i;
             for(; n>0 && (rx || ry); --n ){ // consider items one by one
                 if(ss[n][rx][ry] && !ss[n-1][rx][ry]){ // arr[n-1] is essential for either x or y
                     if(rx && (arr[n-1] <= rx) && !ss[n-1][rx][ ry-arr[n-1] ]){ 
-					// without the nth element, sumSets {rx} and {ry - arr[n-1]} would be impossible. 
-					// i.e. it's not possible to put arr[n-1] in set Y, hence it goes in X
+                    // without the nth element, sumSets {rx} and {ry - arr[n-1]} would be impossible. 
+                    // i.e. it's not possible to put arr[n-1] in set Y, hence it goes in X
                         rx -= arr[n-1];
                         setx.insert(arr[n-1]);
                     } else {
@@ -82,16 +82,16 @@ bool partitionSet(vector<int> &arr, int sum) {
                 }
             }
 
-            cout << "First set : ";
-            for_each(setx.begin(), setx.end(), [](int x){cout << x << ",";}); cout << endl;
+            cout << "First set: ";
+            for(auto x : setx) cout << x << ","; cout << endl;
             cout << "Second set: ";
-            for_each(sety.begin(), sety.end(), [](int x){cout << x << ",";}); cout << endl;
+            for(auto x : sety) cout << x << ","; cout << endl;
 
             return true;
         }
     }
-	
-	cout << "No equal sum sets possible!" << endl;
+    
+    cout << "No equal sum sets possible!" << endl;
 
     return false;
 }
