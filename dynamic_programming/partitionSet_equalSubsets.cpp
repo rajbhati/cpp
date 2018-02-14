@@ -109,20 +109,3 @@ int main() {
     sum = accumulate(arr.begin(), arr.end(), 0) / 2;
     partitionSet(arr, sum);
 }
-
-void prettyPrint(vector<vector<bool>> &vv, vector<int> &arr){
-        cout << endl << __PRETTY_FUNCTION__ << endl;
-        cout << "  0 ";
-        for (int j = 1; j < vv[0].size(); j++)
-                cout <<  j << " ";
-        cout << endl;
-
-        for (int i = 0; i < vv.size(); ++i) {
-                if (i > 0) cout << arr[i - 1] << " "; 
-                else cout << "_ "; 
-                for (int j = 0; j < vv[0].size(); ++j)
-                        cout << vv[i][j] << " ";
-                cout << endl ;
-        }
-        cout << endl;
-}
