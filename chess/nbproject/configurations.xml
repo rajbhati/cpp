@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>bishop.hpp</itemPath>
+      <itemPath>board.hpp</itemPath>
+      <itemPath>boardBuilder.hpp</itemPath>
+      <itemPath>boardUtils.hpp</itemPath>
+      <itemPath>builder.hpp</itemPath>
+      <itemPath>chessmove.hpp</itemPath>
+      <itemPath>classical.hpp</itemPath>
+      <itemPath>classicalBuilder.hpp</itemPath>
+      <itemPath>coordinate.hpp</itemPath>
+      <itemPath>fischerRandomBuilder.hpp</itemPath>
+      <itemPath>king.hpp</itemPath>
+      <itemPath>knight.hpp</itemPath>
+      <itemPath>move.hpp</itemPath>
+      <itemPath>pawn.hpp</itemPath>
+      <itemPath>piece.hpp</itemPath>
+      <itemPath>queen.hpp</itemPath>
+      <itemPath>rook.hpp</itemPath>
+      <itemPath>rulebook.hpp</itemPath>
+      <itemPath>square.hpp</itemPath>
+      <itemPath>team.hpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>bishop.cpp</itemPath>
+      <itemPath>board.cpp</itemPath>
+      <itemPath>boardBuilder.cpp</itemPath>
+      <itemPath>boardUtils.cpp</itemPath>
+      <itemPath>builder.cpp</itemPath>
+      <itemPath>chessmove.cpp</itemPath>
+      <itemPath>classical.cpp</itemPath>
+      <itemPath>classicalBuilder.cpp</itemPath>
+      <itemPath>coordinate.cpp</itemPath>
+      <itemPath>fischerRandomBuilder.cpp</itemPath>
+      <itemPath>king.cpp</itemPath>
+      <itemPath>knight.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>pawn.cpp</itemPath>
+      <itemPath>piece.cpp</itemPath>
+      <itemPath>queen.cpp</itemPath>
+      <itemPath>rook.cpp</itemPath>
+      <itemPath>rulebook.cpp</itemPath>
+      <itemPath>square.cpp</itemPath>
+      <itemPath>team.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
+      </compileType>
+      <item path="bishop.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="bishop.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="board.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="board.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="boardBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="boardBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="boardUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="boardUtils.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="builder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="builder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="chessmove.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="chessmove.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classical.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="classical.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classicalBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="classicalBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="coordinate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="coordinate.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fischerRandomBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fischerRandomBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="king.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="king.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="knight.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="knight.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pawn.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pawn.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="piece.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="piece.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="queen.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="queen.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rook.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rook.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rulebook.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rulebook.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="square.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="square.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="team.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="team.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>8</standard>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="bishop.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="bishop.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="board.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="board.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="boardBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="boardBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="boardUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="boardUtils.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="builder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="builder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="chessmove.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="chessmove.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classical.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="classical.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="classicalBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="classicalBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="coordinate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="coordinate.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fischerRandomBuilder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fischerRandomBuilder.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="king.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="king.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="knight.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="knight.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pawn.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pawn.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="piece.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="piece.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="queen.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="queen.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rook.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rook.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rulebook.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rulebook.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="square.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="square.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="team.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="team.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
